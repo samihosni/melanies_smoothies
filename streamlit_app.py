@@ -1,7 +1,5 @@
 # Import python packages
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
 import streamlit as st
 from snowflake.snowpark.functions import col
 cnx = st.connection("snowflake")
@@ -11,6 +9,8 @@ st.write(
     """Choose your fruit !.
     """
 )
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
 
 session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
