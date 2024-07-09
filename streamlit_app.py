@@ -1,14 +1,5 @@
 # Import python packages
 import streamlit as st
-
-# Write directly to the app
-st.title("My Streamlit APP TEST :cup_with_straw:")
-st.write(
-    """Choose your fruit !.
-    """
-)
-
-
 from snowflake.snowpark.functions import col
 cnx = st.connection("snowflake")
 
