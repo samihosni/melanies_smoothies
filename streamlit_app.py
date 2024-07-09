@@ -2,6 +2,12 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 cnx = st.connection("snowflake")
+# Write directly to the app
+st.title("My Streamlit APP TEST :cup_with_straw:")
+st.write(
+    """Choose your fruit !.
+    """
+)
 
 session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
